@@ -19,6 +19,14 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+._*
 
 # jetbrains setting folder
 .idea/
+
+# VSCode setting folder
+.vscode/
+
+# Cursor and SpecStory temporary files
+/.cursor
+/.specstory
