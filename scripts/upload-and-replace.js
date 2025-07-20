@@ -32,7 +32,7 @@ async function uploadImagesAndReplaceUrls() {
       throw new Error('Missing required environment variables: SWIFT_USERNAME, SWIFT_PASSWORD, SWIFT_TENANT_NAME');
     }
 
-    const sourceDir = path.resolve(__dirname, '../blog_contents/posts');
+    const sourceDir = path.resolve(__dirname, '../../blog_contents/posts');
     const targetDir = path.resolve(__dirname, '../src/content/posts');
     
     // SwiftUploaderの初期化と認証

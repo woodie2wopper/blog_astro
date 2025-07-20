@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import { statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import minimist from 'minimist';
@@ -32,7 +33,7 @@ async function testImageUpload() {
     }
     
     // 画像ファイルの存在確認
-    const sourceDir = path.resolve(__dirname, '../blog_contents/posts');
+    const sourceDir = path.resolve(__dirname, '../../blog_contents/posts');
     const imageFiles = await findImageFiles(sourceDir);
     
     console.log(`📁 Found ${imageFiles.length} image files in source directory`);
@@ -50,7 +51,7 @@ async function testImageUpload() {
     console.log('\n📸 Sample image files:');
     testFiles.forEach((file, index) => {
       const relativePath = path.relative(sourceDir, file);
-      const size = fs.statSync(file).size;
+      const size = statSync(file).size;
       console.log(`  ${index + 1}. ${relativePath} (${(size / 1024).toFixed(1)} KB)`);
     });
     
