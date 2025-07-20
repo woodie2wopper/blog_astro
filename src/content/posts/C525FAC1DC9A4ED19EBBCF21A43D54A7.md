@@ -28,7 +28,7 @@ heroImage: nozikox1200.jpg
 
 
 
-![ノジコは富士山麓での囀ります](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/nozikox1200.jpg){.img-fluid}
+![ノジコは富士山麓での囀ります](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/C525FAC1DC9A4ED19EBBCF21A43D54A7/nozikox1200.jpg){.img-fluid}
 
 ## 西臼塚での探鳥
 
