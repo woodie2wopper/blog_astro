@@ -1,7 +1,7 @@
-const { readFile, writeFile } = require('fs/promises');
-const path = require('path');
-const minimist = require('minimist');
-const { upload } = require('./lib/swift-uploader.js');
+import { readFile, writeFile } from 'fs/promises';
+import path from 'path';
+import minimist from 'minimist';
+import { upload } from './lib/swift-uploader.js';
 
 async function main() {
   try {

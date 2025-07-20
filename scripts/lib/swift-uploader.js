@@ -1,4 +1,4 @@
-const { execFile } = require('child_process');
+import { execFile } from 'child_process';
 
 function upload(filePath, objectName) {
   return new Promise((resolve, reject) => {
@@ -17,4 +17,4 @@ function upload(filePath, objectName) {
   });
 }
 
-module.exports = { upload }; 
+export { upload }; 

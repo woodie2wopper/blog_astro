@@ -1,7 +1,7 @@
-const { readFile, writeFile } = require('fs/promises');
-const path = require('path');
-const { glob } = require('glob');
-const minimist = require('minimist');
+import { readFile, writeFile } from 'fs/promises';
+import path from 'path';
+import { glob } from 'glob';
+import minimist from 'minimist';
 
 async function main() {
   try {
