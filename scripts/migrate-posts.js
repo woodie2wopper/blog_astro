@@ -1,7 +1,7 @@
-const { readdir, writeFile } = require('fs/promises');
-const path = require('path');
-const minimist = require('minimist');
-const { transformPost } = require('./lib/transformer.js');
+import { readdir, writeFile } from 'fs/promises';
+import path from 'path';
+import minimist from 'minimist';
+import { transformPost } from './lib/transformer.js';
 
 async function main() {
   try {

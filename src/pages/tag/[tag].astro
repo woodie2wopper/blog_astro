@@ -1,0 +1,40 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/BlogPost.astro';
+import PostListItem from '../../components/PostListItem.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags).filter(Boolean))];
+
+  return tags.map((tag) => {
+    const filteredPosts = posts.filter(post => post.data.tags?.includes(tag!));
+    return {
+      params: { tag: encodeURIComponent(tag!) },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+type Props = {
+  posts: CollectionEntry<'posts'>[];
+};
+
+const { posts } = Astro.props;
+// We can get the tag from the first post, as they all share this tag.
+// A more robust way might be to pass the tag as a separate prop from getStaticPaths.
+const tag = posts[0]?.data.tags?.find(t => encodeURIComponent(t) === Astro.params.tag);
+---
+
+<Layout>
+  <h1 class="text-3xl font-bold mb-8">Tag: {tag}</h1>
+  <section>
+    <ul class="space-y-8">
+      {posts.map((post) => (
+        <li>
+          <PostListItem post={post} />
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout> 

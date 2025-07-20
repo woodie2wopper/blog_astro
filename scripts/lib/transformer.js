@@ -1,6 +1,6 @@
-const { readFile } = require('fs/promises');
-const path = require('path');
-const matter = require('gray-matter');
+import { readFile } from 'fs/promises';
+import path from 'path';
+import matter from 'gray-matter';
 
 async function transformPost(sourceFilePath, imageUrlBase) {
   const fileContent = await readFile(sourceFilePath, 'utf-8');
@@ -8,16 +8,22 @@ async function transformPost(sourceFilePath, imageUrlBase) {
 
   const newFrontmatter = {};
 
-  newFrontmatter.title = data.title;
-  newFrontmatter.description = data.description;
-  newFrontmatter.category = data.category;
+  newFrontmatter.title = data.title ?? 'No Title';
   newFrontmatter.pubDate = new Date(data.created_time);
   newFrontmatter.updatedDate = new Date(data.modified_time);
   newFrontmatter.tags = data.keywords ? data.keywords.split(',').map(tag => tag.trim()) : [];
   newFrontmatter.isDraft = false;
 
+  if (data.description) {
+    newFrontmatter.description = data.description;
+  }
+
+  if (data.category) {
+    newFrontmatter.category = data.category;
+  }
+
   const heroImageMatch = content.match(/!\[.*?\]\((.*?)\)/);
-  if (heroImageMatch) {
+  if (heroImageMatch && heroImageMatch[1]) {
     newFrontmatter.heroImage = heroImageMatch[1];
   }
 
@@ -34,4 +40,4 @@ async function transformPost(sourceFilePath, imageUrlBase) {
   return { newFileName, newContent };
 }
 
-module.exports = { transformPost }; 
+export { transformPost }; 
