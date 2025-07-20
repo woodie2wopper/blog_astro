@@ -28,7 +28,7 @@ heroImage: nozikox1200.jpg
 
 
 
-![ノジコは富士山麓での囀ります](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/nozikox1200.jpg){.img-fluid}
+![ノジコは富士山麓での囀ります](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/nozikox1200.jpg){.img-fluid}
 
 ## 西臼塚での探鳥
 
@@ -42,7 +42,7 @@ heroImage: nozikox1200.jpg
 >
 > **特にオススメの時期は、夏鳥の集う5月から6月にかけて。**ノジコやキビタキなどの色鮮やかな小鳥たちは、初夏の日差しと新緑の中でとても映えます。
 
-![遊歩道入り口の看板](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6360x1200.JPG){.img-fluid}
+![遊歩道入り口の看板](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6360x1200.JPG){.img-fluid}
 
 結果から言えば、残念ながらノジコには出会えませんでした。その代わり普段には見られないビンズイが大きな声でヒバリの様に忙しく鳴く、美しく囀りとその姿を聞くことができました。里山で聞いている野鳥も多くいました。ウグイスやキビタキやクロツグミがそうなのですが、どういうわけかここの野鳥は声が大きい気がしました。それは地面が溶岩で岩性なので床反響したかなとも思いましたが、鳥たちの声が大きいのかもしれません。すぐにはその理由はわかりませんでした。
 
@@ -91,7 +91,7 @@ heroImage: nozikox1200.jpg
 
 
 
-![虫瘤なんだろうなー、美しい葉っぱです](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6378x1200.JPG){.img-fluid}
+![虫瘤なんだろうなー、美しい葉っぱです](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6378x1200.JPG){.img-fluid}
 
 
 
@@ -147,15 +147,15 @@ heroImage: nozikox1200.jpg
 
 
 
-![臨床はオニシダも生えている場所もあります](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6390x1200.JPG){.img-fluid}
+![臨床はオニシダも生えている場所もあります](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6390x1200.JPG){.img-fluid}
 
 
 
 
 
-![ノジコの営巣場所とされるオニシダ](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6416x1200.JPG){.img-fluid}
+![ノジコの営巣場所とされるオニシダ](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6416x1200.JPG){.img-fluid}
 
-![サンショウの花が咲いていました。口に含むとスースーします](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6413x1200.JPG){.img-fluid}
+![サンショウの花が咲いていました。口に含むとスースーします](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6413x1200.JPG){.img-fluid}
 
 
 
@@ -181,7 +181,7 @@ heroImage: nozikox1200.jpg
 
 
 
-![吉田のうどんを頂きました](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6428x1200.JPG){.img-fluid}
+![吉田のうどんを頂きました](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6428x1200.JPG){.img-fluid}
 
 
 
@@ -189,13 +189,13 @@ heroImage: nozikox1200.jpg
 
 
 
-![肉＋ワカメの大盛り](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6430x1200.JPG){.img-fluid}
+![肉＋ワカメの大盛り](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6430x1200.JPG){.img-fluid}
 
 
 
 かなりの太麺でシコシコです。味噌味で疲れてお腹が空いていたのでとても美味しくいただけました。
 
-![お泊まりしたお宿。お風呂＆居酒屋付きで現地に近く最高でした。](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/IMG_6456x1200.JPG){.img-fluid}
+![お泊まりしたお宿。お風呂＆居酒屋付きで現地に近く最高でした。](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/IMG_6456x1200.JPG){.img-fluid}
 
 [リゾートイン芙蓉　河口湖インター店](https://fuyo-hs.jp/)で一泊しました。ここは露天風呂の温泉と居酒屋併設で満足の1日でした。
 

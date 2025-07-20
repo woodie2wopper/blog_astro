@@ -13,7 +13,7 @@ category: toriR
 heroImage: ./send_mail_by_toriR.webp
 ---
 
-![send mail by toriR](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/send_mail_by_toriR.webp){.img-fluid}
+![send mail by toriR](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/send_mail_by_toriR.webp){.img-fluid}
 
 ## 公開ポリシー毎の配信先
 
@@ -81,7 +81,7 @@ heroImage: ./send_mail_by_toriR.webp
 
 
 
-![データ登録があった時に配信されるメールの設定画面](https://object-storage.tyo2.conoha.io/v1/nc_2520d9a1_blog-astro-assets/blog-astro-assets/setting_mail_reply-tox1200.png){.img-fluid}
+![データ登録があった時に配信されるメールの設定画面](https://object-storage.tyo2.conoha.io/v1/nc_938a9d00d6004f1390c354d4a15ef25b/blog-astro-assets/blog-images/setting_mail_reply-tox1200/setting_mail_reply-tox1200.png){.img-fluid}
 
 
 以上です
