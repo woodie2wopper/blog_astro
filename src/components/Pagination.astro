@@ -1,0 +1,32 @@
+---
+type Props = {
+  page: {
+    url: {
+      prev?: string;
+      next?: string;
+    };
+    currentPage: number;
+    totalPages: number;
+  };
+};
+
+const { page } = Astro.props;
+---
+
+<div class="pagination flex justify-center items-center space-x-4 my-8">
+  {page.url.prev ? (
+    <a href={page.url.prev} class="px-4 py-2 border rounded">&laquo; Prev</a>
+  ) : (
+    <span class="px-4 py-2 border rounded text-gray-400 cursor-not-allowed">&laquo; Prev</span>
+  )}
+
+  <span>
+    Page {page.currentPage} of {page.totalPages}
+  </span>
+
+  {page.url.next ? (
+    <a href={page.url.next} class="px-4 py-2 border rounded">Next &raquo;</a>
+  ) : (
+    <span class="px-4 py-2 border rounded text-gray-400 cursor-not-allowed">Next &raquo;</span>
+  )}
+</div> 
