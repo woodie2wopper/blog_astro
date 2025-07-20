@@ -3,11 +3,23 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/BlogPost.astro';
 import PostListItem from '../components/PostListItem.astro';
 
-const posts = (await getCollection('posts')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+let posts = [];
+let latestPosts = [];
 
-const latestPosts = posts.slice(0, 10);
+try {
+  posts = await getCollection('posts');
+  console.log('Posts count:', posts.length);
+  console.log('First post:', posts[0]?.data);
+  console.log('First post title:', posts[0]?.data.title);
+  
+  const sortedPosts = posts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  
+  latestPosts = sortedPosts.slice(0, 10);
+} catch (error) {
+  console.error('Error getting posts collection:', error);
+}
 ---
 
 <Layout>

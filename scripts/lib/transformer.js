@@ -8,7 +8,7 @@ async function transformPost(sourceFilePath, imageUrlBase) {
 
   const newFrontmatter = {};
 
-  newFrontmatter.title = data.title ?? 'No Title';
+  newFrontmatter.title = data.article_title ?? data.title ?? 'No Title';
   newFrontmatter.pubDate = new Date(data.created_time);
   newFrontmatter.updatedDate = new Date(data.modified_time);
   newFrontmatter.tags = data.keywords ? data.keywords.split(',').map(tag => tag.trim()) : [];

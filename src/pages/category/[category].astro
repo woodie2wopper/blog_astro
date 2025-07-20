@@ -1,0 +1,38 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/BlogPost.astro';
+import PostListItem from '../../components/PostListItem.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const categories = [...new Set(posts.map((post) => post.data.category).filter(Boolean))];
+
+  return categories.map((category) => {
+    const filteredPosts = posts.filter(post => post.data.category === category);
+    return {
+      params: { category: encodeURIComponent(category!) },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+type Props = {
+  posts: CollectionEntry<'posts'>[];
+};
+
+const { posts } = Astro.props;
+const category = decodeURIComponent(Astro.params.category!);
+---
+
+<Layout>
+  <h1 class="text-3xl font-bold mb-8">Category: {category}</h1>
+  <section>
+    <ul class="space-y-8">
+      {posts.map((post) => (
+        <li>
+          <PostListItem post={post} />
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout> 
