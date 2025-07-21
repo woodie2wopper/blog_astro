@@ -1,0 +1,29 @@
+---
+import type { NavItem as NavItemType } from '../types';
+
+export interface Props {
+  item: NavItemType;
+}
+
+const { item } = Astro.props;
+---
+
+{item.children ? (
+  <li class="dropdown">
+    <a href={item.href || '#'}>
+      <span>{item.text}</span>
+      <i class="bi bi-chevron-down dropdown-indicator"></i>
+    </a>
+    <ul>
+      {item.children.map(child => (
+        <li>
+          <a href={child.href}>{child.text}</a>
+        </li>
+      ))}
+    </ul>
+  </li>
+) : (
+  <li>
+    <a href={item.href}><span>{item.text}</span></a>
+  </li>
+)} 

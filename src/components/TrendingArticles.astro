@@ -1,0 +1,42 @@
+---
+import fs from 'fs/promises';
+import path from 'path';
+import { getPostDetails } from '../utils/posts';
+import type { PostDetails } from '../utils/posts';
+
+const dbCategoryPath = '/var/www/data/blog_contents_data/DB_category';
+const fileContent = await fs.readFile(dbCategoryPath, 'utf-8');
+const lines = fileContent.trim().split('\n').reverse();
+
+const seenCategories = new Set<string>();
+const trendingUuids: string[] = [];
+
+for (const line of lines) {
+  const parts = line.split(/\s+/);
+  if (parts.length < 3) continue;
+
+  const category = parts[0];
+  const postPath = parts[2];
+  
+  if (!seenCategories.has(category)) {
+    const uuid = path.basename(postPath);
+    trendingUuids.push(uuid);
+    seenCategories.add(category);
+  }
+}
+
+const trendingArticlesDetails: PostDetails[] = (await Promise.all(
+  trendingUuids.map(uuid => getPostDetails(uuid))
+)).filter((details): details is PostDetails => details !== null);
+---
+
+{trendingArticlesDetails.map(article => (
+  <div class="post-entry-1 border-bottom">
+    <div class="post-meta">
+      <span class="date">{article.category}</span>
+      <span class="mx-1">&bullet;</span>
+      <span>{article.date}</span>
+    </div>
+    <h2 class="mb-2"><a href={article.slug}>{article.title}</a></h2>
+  </div>
+))} 

@@ -1,0 +1,69 @@
+---
+import NavItem from './NavItem.astro';
+import type { NavItem as NavItemType } from '../types';
+
+export interface Props {
+  withSearch?: boolean;
+}
+
+const { withSearch = true } = Astro.props;
+
+const navItems: NavItemType[] = [
+  { text: 'Home', href: '/index.html' },
+  {
+    text: 'toriR',
+    children: [
+      { text: 'wellcome', href: '/wellcome.html' },
+      { text: 'tutorial', href: '/tutorial.html' },
+      { text: 'login', href: '/cgi/login.cgi' },
+    ],
+  },
+  { text: 'blog', href: '/cgi/blog_single-post.cgi' },
+  { text: 'mymap', href: '/cgi/mymap.cgi' },
+  { text: 'tool', href: '/cgi/tool_integrade_observation.cgi' },
+  { text: 'voice', href: '/cgi/voice.cgi?DB=DB_slice2' },
+  {
+    text: 'information',
+    children: [
+      { text: 'news', href: '/1.1.3-News.html' },
+      { text: '利用規約', href: '/1.1.4-Terms_of_service.html' },
+      { text: 'プライバシーポリシー', href: '/1.1.5-privacy_policy.html' },
+      { text: '鳥名データベースの構築について', href: '/1.1.9-bird_list.html' },
+      { text: 'FAQ （工事中）', href: '/1.1.6-FAQ.html' },
+      { text: '用語と説明（工事中）', href: '/1.1.7-Terminology_and_description.html' },
+      { text: '変更履歴', href: '/1.1.8-change_history.html' },
+    ],
+  },
+];
+---
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <div class="logo d-flex align-items-center">
+      <a href="/index.html">
+        <img src="/images/feather.svg" height="35" width="35" alt="logo" />
+      </a>
+      <h1 class="logo">blog</h1>
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        {navItems.map(item => (
+          <NavItem item={item} />
+        ))}
+      </ul>
+    </nav>
+
+    <div class="position-relative">
+      <i class="bi bi-list mobile-nav-toggle"></i>
+      {withSearch && (
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="keyword" id="full-search-box" />
+          <button class="btn btn-outline-secondary" type="button" onclick="fullSearch()">
+            <span class="bi bi-search"></span>
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+</header> 

@@ -1,50 +1,48 @@
 ---
-// src/components/Footer.astro
----
+const navigationLinks = [
+  { text: 'Home', href: '/index.html' },
+  { text: 'Wellcome', href: '/wellcome.html' },
+  { text: 'Tutorial', href: '/tutorial.html' },
+  { text: 'Blog', href: '/cgi/blog_single-post.cgi' },
+  { text: 'About us', href: '/index.html#about' },
+  { text: 'Contact', href: '/index.html#contact' },
+];
 
+// Categories will be dynamically populated in a later task.
+const categoryLinks = []; 
+---
 <footer id="footer" class="footer">
   <div class="footer-content">
     <div class="container">
       <div class="row g-5">
         <div class="col-lg-4">
-          <h3 class="footer-heading">About ZenBlog</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
-          <p><a href="/about" class="footer-link-more">Learn More</a></p>
+          <h3 class="footer-heading logo">toriR Lab.</h3>
+          <p>トリルラボはITで市民科学をサポートします。鳥類の音声分析、スマホを用いた市民調査の主催ツール、EMCのコンサルが主なサービスです。　</p>
+          <p><a href="/index.html#about" class="footer-link-more">Learn More</a></p>
         </div>
         <div class="col-6 col-lg-2">
           <h3 class="footer-heading">Navigation</h3>
-          <ul class="footer-links list-unstyled">
-            <li><a href="/"><i class="bi bi-chevron-right"></i> Home</a></li>
-            <li><a href="/"><i class="bi bi-chevron-right"></i> Blog</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i> Categories</a></li>
-            <li><a href="/post"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-            <li><a href="/about"><i class="bi bi-chevron-right"></i> About us</a></li>
-            <li><a href="/contact"><i class="bi bi-chevron-right"></i> Contact</a></li>
+          <ul class="footer-links list-unstyled link-categories">
+            {navigationLinks.map(link => (
+              <li><a href={link.href}><i class="bi bi-chevron-right"></i> {link.text}</a></li>
+            ))}
           </ul>
         </div>
         <div class="col-6 col-lg-2">
           <h3 class="footer-heading">Categories</h3>
-          <ul class="footer-links list-unstyled">
-            <li><a href="#"><i class="bi bi-chevron-right"></i> Category 1</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i> Category 2</a></li>
-            <li><a href="#"><i class="bi bi-chevron-right"></i> Category 3</a></li>
+          <ul class="footer-links list-unstyled link-categories">
+            {categoryLinks.length > 0 ? (
+              categoryLinks.map(link => (
+                <li><a href={link.href}><i class="bi bi-chevron-right"></i> {link.text}</a></li>
+              ))
+            ) : (
+              <li>(Coming soon)</li>
+            )}
           </ul>
         </div>
-
         <div class="col-lg-4">
           <h3 class="footer-heading">Recent Posts</h3>
-          <ul class="footer-links footer-blog-entry list-unstyled">
-            <li>
-              <a href="/post" class="d-flex align-items-center">
-                <img src="/ZenBlog/assets/img/post-sq-1.jpg" alt="" class="img-fluid me-3">
-                <div>
-                  <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <span>5 Great Startup Tips for Female Founders</span>
-                </div>
-              </a>
-            </li>
-            {/* Repeat for other recent posts */}
-          </ul>
+            (Coming soon...)
         </div>
       </div>
     </div>
@@ -55,23 +53,20 @@
       <div class="row justify-content-between">
         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
           <div class="copyright">
-            © Copyright <strong><span>ZenBlog</span></strong>. All Rights Reserved
-          </div>
-          <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            © Copyright <strong><span class="logo">toriR Lab.</span></strong>. All Rights Reserved
           </div>
         </div>
         <div class="col-md-6">
           <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com/@TorirLab" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.youtube.com/@torirlab" class="mr-2"><span class="bi bi-youtube"></span></a>
+            <a href="https://www.facebook.com/profile.php?id=100007482843025" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://github.com/woodie2wopper" class="mr-2"><i class="bi bi-github"></i></a>
+            <a href="https://www.researchgate.net/profile/Hideki-Osaka" class="mr-2"><i class="fab fa-researchgate"></i></a>
+            <a href="https://www.linkedin.com/in/%E8%8B%B1%E6%A8%B9-%E5%A4%A7%E5%9D%82-557407172/" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-</footer>
-
-<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</footer> 

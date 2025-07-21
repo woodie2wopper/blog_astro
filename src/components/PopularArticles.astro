@@ -1,0 +1,42 @@
+---
+import { glob } from 'glob';
+import fs from 'fs/promises';
+import path from 'path';
+import { getPostDetails } from '../utils/posts';
+import type { PostDetails } from '../utils/posts';
+
+const counterFiles = await glob('/var/w../../src/components/PopularArticles.astroww/data/blog_contents_data/posts/**/*.counter');
+
+const articles = await Promise.all(
+  counterFiles.map(async (file) => {
+    try {
+      const count = parseInt(await fs.readFile(file, 'utf-8'), 10);
+      const uuid = path.basename(file, '.counter');
+      return { uuid, count };
+    } catch {
+      return null;
+    }
+  })
+);
+
+const sortedArticles = articles
+  .filter(article => article !== null)
+  .sort((a, b) => b.count - a.count);
+
+const top10Uuids = sortedArticles.slice(0, 10).map(a => a.uuid);
+
+const popularArticlesDetails: PostDetails[] = (await Promise.all(
+  top10Uuids.map(uuid => getPostDetails(uuid))
+)).filter((details): details is PostDetails => details !== null);
+---
+
+{popularArticlesDetails.map(article => (
+  <div class="post-entry-1 border-bottom">
+    <div class="post-meta">
+      <span class="date">{article.category}</span>
+      <span class="mx-1">&bullet;</span>
+      <span>{article.date}</span>
+    </div>
+    <h2 class="mb-2"><a href={article.slug}>{article.title}</a></h2>
+  </div>
+))} 

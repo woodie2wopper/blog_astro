@@ -1,0 +1,32 @@
+---
+import fs from 'fs/promises';
+import path from 'path';
+import { getPostDetails } from '../utils/posts';
+import type { PostDetails } from '../utils/posts';
+
+const dbPostPath = '/var/www/data/blog_contents_data/DB_post';
+const fileContent = await fs.readFile(dbPostPath, 'utf-8');
+const lines = fileContent.trim().split('\n').reverse();
+
+const latest10Uuids = lines.slice(0, 10).map(line => {
+  const parts = line.split(/\s+/);
+  if (parts.length < 3) return null;
+  const postPath = parts[2];
+  return path.basename(postPath);
+}).filter((uuid): uuid is string => uuid !== null);
+
+const latestArticlesDetails: PostDetails[] = (await Promise.all(
+  latest10Uuids.map(uuid => getPostDetails(uuid))
+)).filter((details): details is PostDetails => details !== null);
+---
+
+{latestArticlesDetails.map(article => (
+  <div class="post-entry-1 border-bottom">
+    <div class="post-meta">
+      <span class="date">{article.category}</span>
+      <span class="mx-1">&bullet;</span>
+      <span>{article.date}</span>
+    </div>
+    <h2 class="mb-2"><a href={article.slug}>{article.title}</a></h2>
+  </div>
+))} 

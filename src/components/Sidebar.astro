@@ -1,59 +1,36 @@
 ---
-// src/components/Sidebar.astro
+import CategoryList from './CategoryList.astro';
+import PopularArticles from './PopularArticles.astro';
+import TrendingArticles from './TrendingArticles.astro';
+import LatestArticles from './LatestArticles.astro';
 ---
+<Fragment>
+  <CategoryList />
 
-<div class="aside-block">
-  <h3 class="aside-title">Categories</h3>
-  <ul class="aside-links list-unstyled">
-    <li><a href="#"><i class="bi bi-chevron-right"></i> Category 1</a></li>
-    <li><a href="#"><i class="bi bi-chevron-right"></i> Category 2</a></li>
-    <li><a href="#"><i class="bi bi-chevron-right"></i> Category 3</a></li>
-  </ul>
-</div><!-- End Categories -->
+  <div class="aside-block">
+    <h3 class="aside-title">Articles</h3>
+    <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="false">Popular</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-trending-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending" aria-selected="false">Trending</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="true">Latest</button>
+      </li>
+    </ul>
 
-<div class="aside-block">
-  <h3 class="aside-title">Articles</h3>
-  <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="false">Popular</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-trending-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending" aria-selected="false">Trending</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="true">Latest</button>
-    </li>
-  </ul>
-
-  <div class="tab-content" id="pills-tabContent">
-    <!-- Popular -->
-    <div class="tab-pane fade" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-      <div class="post-entry-1 border-bottom">
-        <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-        <h2 class="mb-2"><a href="#">How to Avoid Scammers Language</a></h2>
-        <span class="author mb-3 d-block">Jenny Wilson</span>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+        <PopularArticles />
       </div>
-      {/* Add more popular posts as placeholders */}
-    </div>
-
-    <!-- Trending -->
-    <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
-        <div class="post-entry-1 border-bottom">
-            <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-            <h2 class="mb-2"><a href="#">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
-            <span class="author mb-3 d-block">Jenny Wilson</span>
-        </div>
-      {/* Add more trending posts as placeholders */}
-    </div>
-
-    <!-- Latest -->
-    <div class="tab-pane fade show active" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
-        <div class="post-entry-1 border-bottom">
-            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-            <h2 class="mb-2"><a href="#">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
-            <span class="author mb-3 d-block">Jenny Wilson</span>
-        </div>
-      {/* Add more latest posts as placeholders */}
+      <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
+        <TrendingArticles />
+      </div>
+      <div class="tab-pane fade show active" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
+        <LatestArticles />
+      </div>
     </div>
   </div>
-</div> 
+</Fragment> 
