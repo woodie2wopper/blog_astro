@@ -1,7 +1,11 @@
 ---
-import Header from '../components/Header.astro';
+import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Sidebar from '../components/Sidebar.astro';
+import '../styles/bootstrap.min.css';
+import '../styles/bootstrap-icons.css';
+import '../styles/variables.css';
+import '../styles/main.css';
 
 export interface Props {
 	title: string;
@@ -20,14 +24,9 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
-    {/* ZenBlog Styles */}
-    <link href="/ZenBlog/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/ZenBlog/assets/css/variables.css" rel="stylesheet">
-    <link href="/ZenBlog/assets/css/main.css" rel="stylesheet">
-
 	</head>
 	<body>
-    <Header />
+    <Navbar />
 		<main id="main">
 			<div class="container">
 				<div class="row">
