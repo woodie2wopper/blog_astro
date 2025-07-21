@@ -1,68 +1,102 @@
-# Astro Starter Kit: Blog
+# Astro Blog
 
-```sh
-npm create astro@latest -- --template blog
+このリポジトリは、Astroで構築された、モダンで高性能なブログのソースコードを管理します。
+旧来のシェルスクリプトベースのシステムから、静的サイト生成アーキテクチャへと移行したプロジェクトです。
+
+## ✨ 主な特徴
+
+- 🚀 **高速パフォーマンス**: Astroにより生成された静的ページは、最高の表示速度を提供します。
+- ✍️ **コンテンツ中心**: Markdownで記事を執筆できます。フロントマターはスキーマで厳格に検証され、品質を保ちます。
+- 🖼️ **最適化された画像管理**: 画像ファイルはリポジトリから分離され、外部のオブジェクトストレージで管理されるため、リポジトリは常に軽量です。
+- 🤖 **CI/CDによる自動化**: `git push`をトリガーに、GitHub Actionsがサイトのテスト、ビルド、デプロイを自動的に実行します。
+- 🎨 **コンポーネントベース設計**: UIは再利用可能なAstroコンポーネントで構築されており、メンテナンス性に優れています。
+
+## 🏁 開発環境のセットアップ
+
+ローカル環境で開発を開始する手順は以下の通りです。
+
+1.  **リポジトリをクローン:**
+    ```bash
+    git clone https://github.com/your-username/blog_astro.git
+    cd blog_astro
+    ```
+
+2.  **依存パッケージのインストール:**
+    ```bash
+    npm install
+    ```
+
+3.  **開発サーバーの起動:**
+    ```bash
+    npm run dev
+    ```
+    これによりローカル開発サーバーが起動します。通常は `http://localhost:4321` でアクセスできます。
+
+## ✍️ コンテンツの作成と管理
+
+### 記事の作成・編集
+
+ブログ記事はすべて `src/content/posts/` ディレクトリ内にMarkdownファイルとして格納されます。
+
+-   **新規記事の作成**: `src/content/posts/` 内に新しい `.md` ファイルを追加します。
+-   **フロントマター**: 各記事の先頭には、YAML形式のフロントマターが必須です。この構造は `src/content/config.ts` で定義されたスキーマによって厳密に検証されます。
+
+**フロントマターの例:**
+```yaml
+---
+title: "新しい記事のタイトル"
+pubDate: 2025-07-21
+description: "この記事の簡単な説明です。"
+author: "執筆者名"
+image:
+    url: "https://object-storage.example.com/images/image.jpg"
+    alt: "画像の代替テキスト"
+tags: ["astro", "blog", "dev"]
+---
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+### 画像の取り扱い方針
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+このプロジェクトでは、「テキストはGit、画像はオブジェクトストレージ」という原則を徹底します。
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+1.  画像を外部のオブジェクトストレージ（例: Cloudflare R2, ConoHa オブジェクトストレージなど）にアップロードします。
+2.  アップロードした画像の公開URLを取得し、記事のフロントマターや本文中で使用します。
+3.  **画像ファイルそのものを、このGitリポジトリにコミットしないでください。**
 
-Features:
+## 📂 ディレクトリ構成
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+このAstroプロジェクトの主要なディレクトリ構成です。
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
+/
 ├── public/
+│   └── # faviconやフォントなどの静的アセット
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/
+│   │   └── # 再利用可能なUIコンポーネント (.astro)
+│   ├── content/
+│   │   ├── posts/
+│   │   │   └── # ブログ記事のMarkdownファイル (.md)
+│   │   └── config.ts  # コンテンツコレクションのスキーマ定義
+│   ├── layouts/
+│   │   └── # ページの基本レイアウト (.astro)
+│   └── pages/
+│       └── # 固定ページなど (.astro, .md)
+└── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+-   `src/content/`: すべてのコンテンツ（ブログ記事）が格納されます。Astroのコンテンツコレクション機能により、型安全な管理が可能です。
+-   `src/components/`: `Navbar.astro` や `Footer.astro` など、再利用するUI部品が格納されます。
+-   `src/layouts/`: 記事ページや一覧ページなど、サイト全体の骨格となるレイアウトを定義します。
+-   `public/`: ビルドプロセスを経由しない、そのまま配信される静的ファイル（例: `favicon.ico`）を配置します。
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🚀 デプロイ
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+デプロイプロセスは、GitHub Actions によって完全に自動化されています。
 
-Any static assets, like images, can be placed in the `public/` directory.
+1.  ローカルでの変更を `main` ブランチに `push` します。
+2.  `push` をトリガーとして、GitHub Actionsのワークフローが自動的に開始されます。
+3.  ワークフローが `npm run build` を実行し、静的サイトを `dist/` ディレクトリに生成します。
+4.  生成された静的ファイルが、ホスティング環境（Vercel, Netlify, Cloudflare Pagesなど）に自動でデプロイされます。
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+旧システムのような手動のCGIスクリプト (`blog_fetch.cgi` など) は、もはや存在しません。
